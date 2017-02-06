@@ -53,7 +53,7 @@ read answer
 if echo "$answer" | grep -iq "^y" ; then
   echo ""
   echo "Loading $REGISTER data to $PHASE"
-  echo `cat $REGISTER.rsf | curl -X POST -u openregister:$PASSWORD --data-binary @- https://$REGISTER.$PHASE.openregister.org/load-rsf --header "Content-Type:application/uk-gov-rsf"`
+  echo `cat $REGISTER.rsf | sed 's/sha256/sha-256/' | curl -X POST -u openregister:$PASSWORD --data-binary @- https://$REGISTER.$PHASE.openregister.org/load-rsf --header "Content-Type:application/uk-gov-rsf"`
 fi
 
 echo ""
