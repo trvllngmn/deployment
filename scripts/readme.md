@@ -47,6 +47,7 @@ Arguments:
 - register name
 - phase
 - TSV file path (relative to $OPENREGISTER_ROOT)
+- metadata, user or all, depending on the type of data to be loaded
 - local or remote depending on whether register and field definitions is to be read from the local file system or a remote ORJ service.
 - the custodian name (if more than one word then this must be in quotes)
 - data directory (relative to $OPENREGISTER_ROOT) if data is not in $REGISTER-data [optional].

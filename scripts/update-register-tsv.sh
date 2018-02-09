@@ -34,9 +34,9 @@ update_data_repo $DATA_DIR
 echo "converting $TSV to RSF - don't prepend metadata"
 if [ "$METADATA_SOURCE" = 'local' ]
 then
-  python3 $OPENREGISTER_BASE/deployment/scripts/rsfcreator.py $REGISTER $PHASE --tsv $TSV --register_data_root $OPENREGISTER_BASE > $OPENREGISTER_BASE/tmp.rsf
+  python3 $OPENREGISTER_BASE/deployment/scripts/rsfcreator.py $REGISTER $PHASE --tsv $TSV --include_user_data --register_data_root $OPENREGISTER_BASE > $OPENREGISTER_BASE/tmp.rsf
 else
-  python3 $OPENREGISTER_BASE/deployment/scripts/rsfcreator.py $REGISTER $PHASE --tsv $TSV > $OPENREGISTER_BASE/tmp.rsf
+  python3 $OPENREGISTER_BASE/deployment/scripts/rsfcreator.py $REGISTER $PHASE --tsv $TSV --include_user_data > $OPENREGISTER_BASE/tmp.rsf
 fi
 
 PASSWORD=`PASSWORD_STORE_DIR=~/.registers-pass pass $PHASE/app/mint/$REGISTER`
